@@ -1,0 +1,60 @@
+---
+title: "Birthday_Vignette"
+output: rmarkdown::html_vignette
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteIndexEntry{Birthday_Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## 1 The mathematical derivation of the probability that two or more people in a class of size n have the same birthday (Use Latex only)
+
+The probability that the total of all the birthdays $n$  are distinct is 
+
+$P(A^c) = \dfrac{365 \cdot 364 \cdots (365-n+1)}{365^n}$
+
+Since the there are only two options (that a birthday is shared or not)
+
+$P(A) + P(A^c) = 1$
+
+Therefore, the probability that at least two people share a birthday is 
+
+$P(A) = 1 - P(A^c)$
+
+or
+
+$P(A) = 1 - \dfrac{365 \cdot 364 \cdots (365-n+1)}{365^n}$
+
+
+
+## 2 The reformulation of this probability using lfactorial and lchoose (You may use the picture below)
+
+
+<center>
+!["Birthday Algebra"](birthdayalgebra.png){ width=80% }
+</center>
+
+
+
+## 3 [After packaging the birthday function and documenting it] Show the body of the function 
+```{r}
+# here is the body of the function that I made
+birthday <- function(x){
+  1 - exp(lchoose(365, x) + lfactorial(x) - x*log(365))
+}
+```
+
+## 4 birthday(n = 20:25) (Run in an R chunk)
+
+```{r setup}
+birthday(20:25)
+```

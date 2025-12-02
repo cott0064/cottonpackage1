@@ -1,0 +1,12 @@
+accd                    Prices of 50,000 round cut diamonds.
+bear                    Bearings data set.
+bullseye                Bull's eye function
+ddt                     DDT data set.
+fire                    FIRE data set.
+mvmat                   Multivariate Normal Distribution
+mybin                   A binomial simulation
+myboot2                 A function that bootstraps
+myclt                   CLT function
+mymult                  Multinomial simulation
+myncurve                A Normal curve with area
+mynewt                  Newton Raphson Algorithm

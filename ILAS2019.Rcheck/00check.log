@@ -1,0 +1,192 @@
+* using log directory ‘/Users/andersoncotton/Desktop/Desktop - Anderson’s MacBook Air/STATS/MATH4753F25anderson/cottonpackage1/ILAS2019.Rcheck’
+* using R version 4.5.1 (2025-06-13)
+* using platform: aarch64-apple-darwin20
+* R was compiled by
+    Apple clang version 16.0.0 (clang-1600.0.26.6)
+    GNU Fortran (GCC) 14.2.0
+* running under: macOS Ventura 13.1
+* using session charset: UTF-8
+* using options ‘--no-manual --as-cran’
+* checking for file ‘ILAS2019/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘ILAS2019’ version ‘0.1.0’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘ILAS2019’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... NOTE
+unable to verify current time
+* checking ‘build’ directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+License components which are templates and need '+ file LICENSE':
+  MIT
+* checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  ‘FIREDAM.csv’
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking code files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking dependencies in R code ... WARNING
+'library' or 'require' calls not declared from:
+  ‘ellipse’ ‘mvtnorm’
+'library' or 'require' calls in package code:
+  ‘ellipse’ ‘mvtnorm’
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+Namespaces in Imports field not imported from:
+  ‘ellipse’ ‘mvtnorm’
+  All declared Imports should be used.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+mvmat: warning in matrix(c(sig11, sig12, sig21, sig22), nr = 2, nc = 2,
+  byrow = TRUE): partial argument match of 'nr' to 'nrow'
+mvmat: warning in matrix(c(sig11, sig12, sig21, sig22), nr = 2, nc = 2,
+  byrow = TRUE): partial argument match of 'nc' to 'ncol'
+mybin: warning in matrix(NA, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+mybin: warning in matrix(NA, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+myboot2: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+myboot2: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+myboot2: warning in matrix(x, nr = length(x), nc = 1, byrow = TRUE):
+  partial argument match of 'nr' to 'nrow'
+myboot2: warning in matrix(x, nr = length(x), nc = 1, byrow = TRUE):
+  partial argument match of 'nc' to 'ncol'
+myclt: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+myclt: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+mycltp: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+mycltp: warning in matrix(y, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+mycltp: warning in matrix(c(1, 1, 2, 3), nr = 2, nc = 2, byrow = TRUE):
+  partial argument match of 'nr' to 'nrow'
+mycltp: warning in matrix(c(1, 1, 2, 3), nr = 2, nc = 2, byrow = TRUE):
+  partial argument match of 'nc' to 'ncol'
+mymult: warning in matrix(NA, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+mymult: warning in matrix(NA, nr = n, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+mymult: warning in matrix(NA, nr = k, nc = iter, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+mymult: warning in matrix(NA, nr = k, nc = iter, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+mynewt: warning in matrix(1:2, nr = 2, nc = 1, byrow = TRUE): partial
+  argument match of 'nr' to 'nrow'
+mynewt: warning in matrix(1:2, nr = 2, nc = 1, byrow = TRUE): partial
+  argument match of 'nc' to 'ncol'
+bullseye: no visible global function definition for ‘rnorm’
+bullseye: no visible global function definition for ‘rchisq’
+bullseye: no visible global function definition for ‘rgb’
+bullseye: no visible global function definition for ‘legend’
+bullseye: no visible global function definition for ‘abline’
+bullseye: no visible global function definition for ‘points’
+bullseye: no visible global function definition for ‘title’
+bullseye: no visible global function definition for ‘text’
+mvmat: no visible global function definition for ‘rmvnorm’
+mvmat: no visible global function definition for ‘sd’
+mvmat: no visible global function definition for ‘cov’
+mvmat: no visible global function definition for ‘ellipse’
+mvmat: no visible global function definition for ‘points’
+mvmat: no visible global function definition for ‘abline’
+mybin: no visible global function definition for ‘barplot’
+mybin: no visible global function definition for ‘rainbow’
+myboot2: no visible global function definition for ‘quantile’
+myboot2: no visible global function definition for ‘hist’
+myboot2: no visible global function definition for ‘abline’
+myboot2: no visible global function definition for ‘segments’
+myboot2: no visible global function definition for ‘text’
+myclt: no visible global function definition for ‘runif’
+myclt: no visible global function definition for ‘hist’
+myclt: no visible global function definition for ‘rainbow’
+myclt: no visible global function definition for ‘curve’
+myclt: no visible global function definition for ‘dnorm’
+myclt: no visible binding for global variable ‘x’
+mycltp: no visible global function definition for ‘rpois’
+mycltp: no visible global function definition for ‘hist’
+mycltp: no visible global function definition for ‘layout’
+mycltp: no visible global function definition for ‘rainbow’
+mycltp: no visible global function definition for ‘curve’
+mycltp: no visible global function definition for ‘dnorm’
+mycltp: no visible global function definition for ‘barplot’
+mycltp: no visible global function definition for ‘dpois’
+mymult: no visible global function definition for ‘barplot’
+mymult: no visible global function definition for ‘rainbow’
+myncurve: no visible global function definition for ‘curve’
+myncurve: no visible global function definition for ‘dnorm’
+myncurve: no visible global function definition for ‘polygon’
+myncurve: no visible global function definition for ‘pnorm’
+mynewt: no visible binding for global variable ‘myfun’
+mynewt: no visible global function definition for ‘layout’
+mynewt: no visible global function definition for ‘curve’
+mynewt: no visible global function definition for ‘abline’
+mynewt: no visible global function definition for ‘points’
+mynewt: no visible global function definition for ‘axis’
+mynewt: no visible global function definition for ‘segments’
+mynewt: no visible global function definition for ‘arrows’
+mynewt: no visible global function definition for ‘text’
+Undefined global functions or variables:
+  abline arrows axis barplot cov curve dnorm dpois ellipse hist layout
+  legend myfun pnorm points polygon quantile rainbow rchisq rgb rmvnorm
+  rnorm rpois runif sd segments text title x
+Consider adding
+  importFrom("grDevices", "rainbow", "rgb")
+  importFrom("graphics", "abline", "arrows", "axis", "barplot", "curve",
+             "hist", "layout", "legend", "points", "polygon", "segments",
+             "text", "title")
+  importFrom("stats", "cov", "dnorm", "dpois", "pnorm", "quantile",
+             "rchisq", "rnorm", "rpois", "runif", "sd")
+to your NAMESPACE file.
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... WARNING
+Data codoc mismatches from Rd file 'accd.Rd':
+Variables in data frame 'accd'
+  Code: ACCIDENTS HOUR
+  Docs: carat price
+
+Data codoc mismatches from Rd file 'ddt.Rd':
+Variables in data frame 'ddt'
+  Code: DDT LENGTH MILE RIVER SPECIES WEIGHT
+  Docs: LENGTH WEIGHT
+
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of ‘data’ directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking LazyData ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking installed files from ‘inst/doc’ ... OK
+* checking files in ‘vignettes’ ... OK
+* checking examples ... OK
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes ... OK
+* checking re-building of vignette outputs ... OK
+* checking for non-standard things in the check directory ... OK
+* checking for detritus in the temp directory ... OK
+* DONE
+Status: 2 WARNINGs, 4 NOTEs
