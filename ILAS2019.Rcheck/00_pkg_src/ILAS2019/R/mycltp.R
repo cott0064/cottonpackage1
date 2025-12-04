@@ -1,13 +1,12 @@
 #' mycltp
 #'
-#' @param n number of trials
-#' @param iter number of iterations
-#' @param lambda lambda
-#' @param ... 
+#' @param n sample size
+#' @param iter iterations
+#' @param lambda rate parameter
+#' @param ... additional parameters
 #'
 #' @returns barplot, histogram, and curve
 #' @export
-#'
 #' @examples
 mycltp = function(n, iter, lambda = 10, ...){
   ## r-random sample from the Poisson

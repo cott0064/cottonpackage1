@@ -22,8 +22,7 @@
 * checking whether package ‘ILAS2019’ can be installed ... OK
 * checking installed package size ... OK
 * checking package directory ... OK
-* checking for future file timestamps ... NOTE
-unable to verify current time
+* checking for future file timestamps ... OK
 * checking ‘build’ directory ... OK
 * checking DESCRIPTION meta-information ... NOTE
 License components which are templates and need '+ file LICENSE':
@@ -83,6 +82,10 @@ mycltp: warning in matrix(c(1, 1, 2, 3), nr = 2, nc = 2, byrow = TRUE):
   partial argument match of 'nr' to 'nrow'
 mycltp: warning in matrix(c(1, 1, 2, 3), nr = 2, nc = 2, byrow = TRUE):
   partial argument match of 'nc' to 'ncol'
+mymaxlikg: warning in matrix(theta, nr = nth, nc = 1, byrow = TRUE):
+  partial argument match of 'nr' to 'nrow'
+mymaxlikg: warning in matrix(theta, nr = nth, nc = 1, byrow = TRUE):
+  partial argument match of 'nc' to 'ncol'
 mymult: warning in matrix(NA, nr = n, nc = iter, byrow = TRUE): partial
   argument match of 'nr' to 'nrow'
 mymult: warning in matrix(NA, nr = n, nc = iter, byrow = TRUE): partial
@@ -103,6 +106,7 @@ bullseye: no visible global function definition for ‘abline’
 bullseye: no visible global function definition for ‘points’
 bullseye: no visible global function definition for ‘title’
 bullseye: no visible global function definition for ‘text’
+logbin2: no visible global function definition for ‘dbinom’
 mvmat: no visible global function definition for ‘rmvnorm’
 mvmat: no visible global function definition for ‘sd’
 mvmat: no visible global function definition for ‘cov’
@@ -130,6 +134,8 @@ mycltp: no visible global function definition for ‘curve’
 mycltp: no visible global function definition for ‘dnorm’
 mycltp: no visible global function definition for ‘barplot’
 mycltp: no visible global function definition for ‘dpois’
+mymaxlikg: no visible global function definition for ‘abline’
+mymaxlikg: no visible global function definition for ‘axis’
 mymult: no visible global function definition for ‘barplot’
 mymult: no visible global function definition for ‘rainbow’
 myncurve: no visible global function definition for ‘curve’
@@ -146,16 +152,16 @@ mynewt: no visible global function definition for ‘segments’
 mynewt: no visible global function definition for ‘arrows’
 mynewt: no visible global function definition for ‘text’
 Undefined global functions or variables:
-  abline arrows axis barplot cov curve dnorm dpois ellipse hist layout
-  legend myfun pnorm points polygon quantile rainbow rchisq rgb rmvnorm
-  rnorm rpois runif sd segments text title x
+  abline arrows axis barplot cov curve dbinom dnorm dpois ellipse hist
+  layout legend myfun pnorm points polygon quantile rainbow rchisq rgb
+  rmvnorm rnorm rpois runif sd segments text title x
 Consider adding
   importFrom("grDevices", "rainbow", "rgb")
   importFrom("graphics", "abline", "arrows", "axis", "barplot", "curve",
              "hist", "layout", "legend", "points", "polygon", "segments",
              "text", "title")
-  importFrom("stats", "cov", "dnorm", "dpois", "pnorm", "quantile",
-             "rchisq", "rnorm", "rpois", "runif", "sd")
+  importFrom("stats", "cov", "dbinom", "dnorm", "dpois", "pnorm",
+             "quantile", "rchisq", "rnorm", "rpois", "runif", "sd")
 to your NAMESPACE file.
 * checking Rd files ... OK
 * checking Rd metadata ... OK
@@ -189,4 +195,4 @@ Variables in data frame 'ddt'
 * checking for non-standard things in the check directory ... OK
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 2 WARNINGs, 4 NOTEs
+Status: 2 WARNINGs, 3 NOTEs

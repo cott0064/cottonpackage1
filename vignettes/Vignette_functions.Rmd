@@ -1,0 +1,203 @@
+---
+title: "Birthday_Vignette"
+output: rmarkdown::html_vignette
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteIndexEntry{Birthday_Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Birthday
+
+## 1 The mathematical derivation of the probability that two or more people in a class of size n have the same birthday (Use Latex only)
+
+The probability that the total of all the birthdays $n$  are distinct is 
+
+$P(A^c) = \dfrac{365 \cdot 364 \cdots (365-n+1)}{365^n}$
+
+Since the there are only two options (that a birthday is shared or not)
+
+$P(A) + P(A^c) = 1$
+
+Therefore, the probability that at least two people share a birthday is 
+
+$P(A) = 1 - P(A^c)$
+
+or
+
+$P(A) = 1 - \dfrac{365 \cdot 364 \cdots (365-n+1)}{365^n}$
+
+
+
+## 2 The reformulation of this probability using lfactorial and lchoose (You may use the picture below)
+
+
+<center>
+!["Birthday Algebra"](birthdayalgebra.png){ width=80% }
+</center>
+
+
+
+## 3 [After packaging the birthday function and documenting it] Show the body of the function 
+```{r}
+# here is the body of the function that I made
+birthday <- function(x){
+  1 - exp(lchoose(365, x) + lfactorial(x) - x*log(365))
+}
+```
+
+## 4 birthday(n = 20:25) (Run in an R chunk)
+
+```{r setup}
+birthday(20:25)
+```
+
+
+
+# mycurve
+```{r}
+myncurve = function(mu, sigma,a ){
+  curve(dnorm(x,mean=mu,sd=sigma),
+        xlim = c(mu-3*sigma, mu + 3*sigma),
+        main = paste("P(X <=", a, ")"),
+        ylab = "Density",
+        xlab = "x")
+
+  x_vals = seq(mu - 3 * sigma, a, length = 1000)
+  y_vals = dnorm(x_vals, mean = mu, sd = sigma)
+  polygon(c(x_vals, a), c(y_vals,0), col="red")
+
+  area = round(pnorm(a, mean = mu, sd = sigma), 4)
+
+  return(list(mu = mu, sigma = sigma, a =a, area = area))
+}
+```
+
+```{r}
+myncurve(mu=10, sigma=5, a=6)
+```
+
+
+# myboot
+```{r}
+myboot2<-function(iter=10000,x,fun="mean",alpha=0.05,cx=1.5,...){  #Notice where the ... is repeated in the code
+  n=length(x)   #sample size
+  y=sample(x,n*iter,replace=TRUE)
+  rs.mat=matrix(y,nr=n,nc=iter,byrow=TRUE)
+  xstat=apply(rs.mat,2,fun) # xstat is a vector and will have iter values in it
+  ci=quantile(xstat,c(alpha/2,1-alpha/2))# Nice way to form a confidence interval
+  # A histogram follows
+  # The object para will contain the parameters used to make the histogram
+  para=hist(xstat,freq=FALSE,las=1,
+            main=paste("Histogram of Bootstrap sample statistics","\n","alpha=",alpha," iter=",iter,sep=""),
+            ...)
+  #mat will be a matrix that contains the data, this is done so that I can use apply()
+  mat=matrix(x,nr=length(x),nc=1,byrow=TRUE)
+  #pte is the point estimate
+  #This uses whatever fun is
+  pte=apply(mat,2,fun)
+  abline(v=pte,lwd=3,col="Black")# Vertical line
+  segments(ci[1],0,ci[2],0,lwd=4)      #Make the segment for the ci
+  text(ci[1],0,paste("(",round(ci[1],2),sep=""),col="Red",cex=cx)
+  text(ci[2],0,paste(round(ci[2],2),")",sep=""),col="Red",cex=cx)
+
+  # plot the point estimate 1/2 way up the density
+  text(pte,max(para$density)/2,round(pte,2),cex=cx)
+
+  return(list(ci=ci,fun=fun,x=x))# Some output to use if necessary
+}
+```
+
+```{r}
+sam=rgamma(30,shape=2,scale=3)
+myboot2(iter=10000, x=sam, fun="mean", alpha=0.05, xlab="mean")
+```
+
+
+
+
+# nticks
+```{r}
+ntickets = function(N, gamma, p){
+
+  # APPROPRIATE DISCRETE DISTRIBUTION
+
+  # range of n
+  range = seq(N, N + 50, by = 1)
+  # discrete objective
+  obj_discrete = 1 - gamma - pbinom(N, size = range, prob = p)
+  # index of min objective
+  idx_discrete = which.min(abs(obj_discrete))
+  # min n value
+  nd = range[idx_discrete]
+  # plot
+  plot(range, obj_discrete,
+       type = "n",
+       main = "Objective vs n for optimal tickets sold (Discrete)", # title
+       xlab = "n values", # x label
+       ylab = "Objective") # y label
+  # line of discrete objective
+  lines(range, obj_discrete)
+  # points along line of discrete objective
+  points(range, obj_discrete, pch = 21, col = "black", bg = "blue")
+  # point for optimal n
+  points(range[idx_discrete], obj_discrete[idx_discrete], pch = 21, col = "black", bg = "#FDF9D8") # OU creme hex code :)
+  # horizontal and vertical lines of intersection for optimal n
+  abline( h = 0, v = range[idx_discrete], col = "#841617", lty = 1) # I crimson hex code :)
+
+
+  # NORMAL APPROXIMATION
+
+  # range of n
+  range = seq(N, N + 50, by = 1)
+  # approximation
+  z_value = (N + (1/2) - range * p) / sqrt(range * p * (1 - p))
+  p_approx = pnorm(z_value)
+  # continuous objective
+  obj_continuous = 1 - gamma - p_approx
+  # index of min objective
+  idx_cont = which.min(abs(obj_continuous))
+  # min n
+  nc = range[idx_cont]
+  # plot
+  plot(range, obj_continuous,
+       type = "n",
+       main = "Objective vs n for optimal tickets sold (Continuous)", # title
+       xlab = "n values", # x label
+       ylab = "Objective") # y label
+  # line of continuous objective
+  lines(range, obj_continuous)
+  # point for optimal n
+  points(range[idx_cont], obj_continuous[idx_cont], pch = 21, bg = "#FDF9D8", cex = 1)
+  # horizontal and vertical reference lines
+  abline(h = 0, v = range[idx_discrete], col = "darkblue", lty = 1)
+  # return the list of variables
+  return(list(nd = nd, nc = nc, N = N, p = p, gamma = gamma))
+}
+```
+
+```{r}
+ntickets(N = 400, gamma = 0.02, p = 0.95)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
